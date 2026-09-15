@@ -10,7 +10,7 @@
 
 
  |No. | Nombre | Descripcion | Potenciador | Esratus |
- |----|------|---|---
+ |----|------|---|---|---| 
  |1. |Metodologia de Evaluacion de la Materia | Transcribir en 
  libreta y comprender la metodolofgia y fechas  dr rvaluacion de 
  la asignatura | 5 | concluido |
