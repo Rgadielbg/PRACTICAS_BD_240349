@@ -1,34 +1,100 @@
-/* Cracion de usuarios remotoes */
-CREATE USER 'marco.ramirez'@'%' IDENTIFIED BY 'qwerty123';
-CREATE USER 'ricardo.gadiel'@'%' IDENTIFIED BY '240349';
-CREATE USER 'rodolfo.hernandez'@'%' IDENTIFIED BY '240836';
-CREATE USER 'jenny.canales'@'%' IDENTIFIED BY '240556';
+/* =========================================================
+   CREACIÓN DE USUARIOS REMOTOS
+   ========================================================= */
+
+CREATE USER IF NOT EXISTS 'marco.ramirez'@'%'
+    IDENTIFIED BY 'qwerty123';
+
+CREATE USER IF NOT EXISTS 'ricardo.gadiel'@'%'
+    IDENTIFIED BY '240349';
+
+CREATE USER IF NOT EXISTS 'rodolfo.hernandez'@'%'
+    IDENTIFIED BY '240836';
+
+CREATE USER IF NOT EXISTS 'jenny.canales'@'%'
+    IDENTIFIED BY '240556';
+
+CREATE USER IF NOT EXISTS 'aaron.ali'@'%'
+    IDENTIFIED BY '240045';
+
+CREATE USER IF NOT EXISTS 'maguito.rojas'@'%'
+    IDENTIFIED BY '240242';
 
 
-/*Asignacion de privilegios de super usuario IMPORTANTE: YOOOP*/
-GRANT ALL PRIVILEGES ON *.* TO 'ricardo.gadiel'@'%';
+/* =========================================================
+   CREACIÓN DE ROLES
+   ========================================================= */
 
-/*Asignar privilegios de seleccion, INSERCCION,actualizacion y eliminacion  AL USUARIO DE LA IZQUIERDA*/
-GRANT SELECT, INSERT, UPDATE, DELETE ON `db_test`.* TO 'jenny.canales'@'%';
-
-/*CREACION DE ROLES PARA EL SISTEMA DE ECOMMERCE*/
-CREATE ROLE 'admin';
-CREATE ROLE 'seller';
-CREATE ROLE 'buyer';
-CREATE ROLE 'support';
-CREATE ROLE 'commont';
-CREATE ROLE 'user_not_registered';
+CREATE ROLE IF NOT EXISTS 'superadmin';
+CREATE ROLE IF NOT EXISTS 'admin';
+CREATE ROLE IF NOT EXISTS 'seller';
+CREATE ROLE IF NOT EXISTS 'buyer';
+CREATE ROLE IF NOT EXISTS 'support';
+CREATE ROLE IF NOT EXISTS 'commont';
+CREATE ROLE IF NOT EXISTS 'user_not_registered';
 
 
+/* =========================================================
+   PRIVILEGIOS DE LOS ROLES
+   ========================================================= */
 
-/*ASIGNAR PRIVILEGIOS A LOS ROLES CREADOS*/
+/* SUPERADMIN */
+GRANT ALL PRIVILEGES
+ON *.*
+TO 'superadmin';
 
-GRANT ALL PRIVILEGES ON db_test.* TO 'admin';
---SUPPORT 
-GRANT SELECT, INSERT, UPDATE ON db_test.* TO 'support';
+
+/* ADMIN */
+GRANT ALL PRIVILEGES
+ON db_test.*
+TO 'admin';
 
 
-/*ASIGNAR ROLES A LOS USARIOS CREADOS*/
-GRANT 'admin' TO 'marco.ramirez'@'%';
+/* SUPPORT */
+GRANT SELECT, INSERT, UPDATE
+ON db_test.*
+TO 'support';
 
-GRANT 'support' TO 'jenny.canales'@'%';
+
+/* =========================================================
+   ASIGNACIÓN DE ROLES A USUARIOS
+   ========================================================= */
+
+/* RICARDO -> SUPERADMIN */
+GRANT 'superadmin'
+TO 'ricardo.gadiel'@'%';
+
+
+/* MARCO -> ADMIN */
+GRANT 'admin'
+TO 'marco.ramirez'@'%';
+
+
+/* JENNY -> SUPPORT */
+GRANT 'support'
+TO 'jenny.canales'@'%';
+
+
+/* AARON -> SUPPORT */
+GRANT 'support'
+TO 'maguito.rojas'@'%';
+
+
+
+
+/* =========================================================
+   ACTIVAR ROLES POR DEFECTO
+   ========================================================= */
+
+SET DEFAULT ROLE 'superadmin'
+TO 'ricardo.gadiel'@'%';
+
+SET DEFAULT ROLE 'admin'
+TO 'marco.ramirez'@'%';
+
+SET DEFAULT ROLE 'support'
+TO 'jenny.canales'@'%';
+
+
+SET DEFAULT ROLE 'support'
+TO 'maguito.rojas'@'%';
