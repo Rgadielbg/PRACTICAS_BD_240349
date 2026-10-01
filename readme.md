@@ -14,4 +14,4 @@
  |1. |Metodologia de Evaluacion de la Materia | Transcribir en 
  libreta y comprender la metodolofgia y fechas  dr rvaluacion de 
  la asignatura | 5 | concluido |
- |2| Conexion remotas para Bases de datos SQL | Crear t AdministraR USUARIO Y Privilegios para conexiones dede internet o redes locales |?? | en progreso | 
+ |2| Conexion remotas para Bases de datos SQL | Crear t AdministraR USUARIO Y Privilegios para conexiones dede internet o redes locales |60 | concluido | 
