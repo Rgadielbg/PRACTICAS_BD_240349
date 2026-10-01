@@ -13,7 +13,7 @@ CREATE USER IF NOT EXISTS 'ricardo.gadiel'@'%' IDENTIFIED BY '240349';
 CREATE USER IF NOT EXISTS 'rodolfo.hernandez'@'%' IDENTIFIED BY '240836';
 CREATE USER IF NOT EXISTS 'aaron.ali'@'%' IDENTIFIED BY '240045';
 CREATE USER IF NOT EXISTS 'maguito.rojas'@'%' IDENTIFIED BY '240242';
-
+CREATE USER IF NOT EXISTS 'dara.gomez'@'%' IDENTIFIED BY '240765';
 
 -- Tu usuario creado para cualquier IP (%) y específico para PC-16
 CREATE USER IF NOT EXISTS 'jenny.canales'@'%' IDENTIFIED BY '240556';
@@ -62,7 +62,7 @@ GRANT 'admin'      TO 'marco.ramirez'@'%';
 GRANT 'support'    TO 'maguito.rojas'@'%';
 GRANT 'support'    TO 'aaron.ali'@'%';
 GRANT 'buyer'      TO 'rodolfo.hernandez'@'%';
-
+GRANT 'seller'     TO 'dara.gomez'@'%';
 -- Rol asignado a ti en ambos hosts
 GRANT 'seller'     TO 'jenny.canales'@'%';
 GRANT 'seller'     TO 'jenny.canales'@'pc-16';
@@ -79,7 +79,7 @@ SET DEFAULT ROLE 'support' TO 'maguito.rojas'@'%';
 -- Activar tu rol seller por defecto
 SET DEFAULT ROLE 'seller' TO 'jenny.canales'@'%';
 SET DEFAULT ROLE 'seller' TO 'jenny.canales'@'%';
-
+SET DEFAULT ROLE 'seller' TO 'dara.gomez'@'%';
 
 /* =========================================================
    7. RECARGAR TABLA DE PRIVILEGIOS
